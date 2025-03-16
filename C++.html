@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Hybrid QR Code Application - Python & C++</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { width: 80%; margin: 20px auto; padding: 20px; border: 1px solid #ccc; }
+        pre { background-color: #f4f4f4; padding: 10px; }
+        h1, h2 { color: #2a2a2a; }
+        .info { background-color: #eef; padding: 15px; margin-top: 10px; border-left: 5px solid #5a5a5a; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Advanced Hybrid QR Code Application Using Python and C++</h1>
+    <p class="info">
+        This guide covers a complete workflow for a hybrid application where Python is used to generate QR codes and C++ is used to read them using a camera. This approach leverages the simplicity of Python and the performance capabilities of C++.
+    </p>
+
+    <h2>Part 1: Generating a QR Code in Python</h2>
+    <pre>
+# Example Python script for generating QR codes
+import qrcode
+qr = qrcode.make('Some data here')
+qr.save('qr_code.png')
+    </pre>
+
+    <h2>Part 2: Reading QR Codes using a Camera in C++</h2>
+    <h3>Prerequisites:</h3>
+    <ul>
+        <li><b>OpenCV:</b> Install OpenCV for C++ to handle video processing.</li>
+        <li><b>ZBar:</b> Install ZBar for QR code decoding.</li>
+    </ul>
+    <pre>
+sudo apt-get install libopencv-dev
+sudo apt-get install libzbar-dev
+    </pre>
+
+    <h3>C++ Code to Read QR Codes:</h3>
+    <pre>
+#include <opencv2/opencv.hpp>
+#include <zbar.h>
+#include <iostream>
+
+int main() {
+    cv::VideoCapture cap(0); // Open the default camera
+    if(!cap.isOpened()) {
+        std::cerr << "Cannot open the camera" << std::endl;
+        return -1;
+    }
+
+    zbar::ImageScanner scanner;
+    scanner.set_config(zbar::ZBAR_NONE, zbar::ZBAR_CFG_ENABLE, 1);
+
+    while (true) {
+        cv::Mat frame;
+        if (!cap.read(frame)) {
+            std::cout << "Cannot read a frame from video stream" << std::endl;
+            break;
+        }
+
+        cv::Mat grey;
+        cvtColor(frame, grey, cv::COLOR_BGR2GRAY);
+        zbar::Image zbarImage(grey.cols, grey.rows, "Y800", (uchar *)grey.data, grey.cols * grey.rows);
+        scanner.scan(zbarImage);
+
+        for(auto symbol = zbarImage.symbol_begin(); symbol != zbarImage.symbol_end(); ++symbol) {
+            std::cout << "Data : " << symbol->get_data() << std::endl;
+        }
+
+        imshow("QR Code Scanner", frame);
+        if (cv::waitKey(30) >= 0) break;
+    }
+
+    return 0;
+}
+    </pre>
+
+    <h3>Compile and Run:</h3>
+    <pre>
+g++ -o qr_reader qr_reader.cpp `pkg-config --cflags --libs opencv4 zbar`
+./qr_reader
+    </pre>
+
+    <p class="info">
+        <b>Workflow:</b> First, use the Python script to generate a QR code and save it. Then, run the C++ program to read the QR code from a live camera feed. The application displays the video and outlines detected QR codes while printing their data to the console. This efficient setup demonstrates a practical application combining the strengths of both Python and C++.
+    </p>
+</div>
+</body>
+</html>

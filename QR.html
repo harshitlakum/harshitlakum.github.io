@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Example - Python</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { width: 80%; margin: 20px auto; padding: 20px; border: 1px solid #ccc; }
+        pre { background-color: #f4f4f4; padding: 10px; }
+        img { margin-top: 10px; width: 150px; height: 150px; }
+        .bold { font-weight: bold; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Example QR Generator Using Python Code</h1>
+    <p><strong>This example demonstrates how to generate a QR code in Python that encodes a URL to a ZIP file hosted on Google Drive.</strong></p>
+    <pre>
+import qrcode
+
+# URL to your hosted ZIP file
+data = 'https://drive.google.com/drive/folders/1A_f5AVHcrP5CMIU4lyIjuKT7YHuRsKVo?usp=share_link'
+
+# Create QR code instance
+qr = qrcode.QRCode(
+    version=1,
+    error_correction=qrcode.constants.ERROR_CORRECT_L,
+    box_size=10,
+    border=4,
+)
+
+# Add data to QR code
+qr.add_data(data)
+qr.make(fit=True)
+
+# Create an image from the QR Code instance
+img = qr.make_image(fill_color="black", back_color="white")
+
+# Save the image
+img.save("1st.png")
+    </pre>
+    <div class="qr-section">
+        <h2>Generated QR Code for Google Drive ZIP File</h2>
+        <p><strong>Output:</strong></p>
+        <img src="1st.png" alt="QR Code for ZIP file">
+        <p class="bold">This QR code, when scanned, provides access to a ZIP file hosted on Google Drive.</p>
+    </div>
+    <div class="qr-section">
+        <h2>Text Message QR Code</h2>
+        <p><strong>Output:</strong></p>
+        <img src="2nd.png" alt="QR Code for Text Message">
+        <p class="bold">This QR code contains a text message. After scanning, you can view a .txt file data embedded within the QR.</p>
+    </div>
+    <p>This is just showcasing how we can proceed with software for encoding and decoding data with QR files.</p>
+</div>
+</body>
+</html>
