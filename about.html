@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About · Harshit Lakum</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-bg">
+  <!-- dark blur overlay from your CSS -->
+  <div class="page-bg-overlay"></div>
+
+  <!-- Simple header (same links across pages) -->
+  <header class="container" style="padding-top:18px">
+    <nav>
+      <a class="btn" href="index.html">Home</a>
+      <a class="btn" href="projects.html" style="margin-left:8px">Projects</a>
+      <a class="btn" href="publications.html" style="margin-left:8px">Publications</a>
+      <a class="btn" href="contact.html" style="margin-left:8px">Contact</a>
+    </nav>
+  </header>
+
+  <!-- ABOUT SECTION (uses .about, .about-card, .about-left/right from your CSS) -->
+  <section class="about">
+    <div class="container about-card">
+      <!-- Left: white panel with your long text -->
+      <div class="about-left">
+        <h2>About Me</h2>
+        <h3>Computational Science • Astrophysics • Quantum • Chemistry</h3>
+
+        <p>
+          I am currently a student specializing in computational sciences, a field where rigorous mathematics
+          and powerful computing converge to solve complex problems across various scientific domains.
+          My academic journey and projects have primarily focused on the innovative applications of
+          computational methods in astrophysics, quantum physics, and chemistry, which have provided me
+          with a solid foundation in both theoretical and applied aspects of these disciplines.
+        </p>
+
+        <p>
+          In the realm of computational astrophysics, I have engaged in projects that simulate celestial
+          phenomena, employing algorithms that model gravitational dynamics, stellar evolution, and galaxy
+          formation. These projects often require the manipulation of large datasets and the use of
+          sophisticated software to visualize the cosmic events, providing insights into the mechanics of
+          the universe that are not readily observable through traditional observational astrophysics.
+        </p>
+
+        <p>
+          Transitioning to the subatomic scale, my work in computational quantum physics has revolved
+          around developing quantum models that predict molecular behavior and interactions. This involves
+          using quantum mechanics to solve for the properties of materials at a nano-scale, which is pivotal
+          for the advancement of technologies such as semiconductors and quantum computing. The ability
+          to accurately predict the quantum states of particles offers profound implications for material
+          science and electronics, heralding new innovations and improvements in efficiency.
+        </p>
+
+        <p>
+          Moreover, my explorations into computational chemistry have included the use of molecular
+          dynamics simulations to study the structural, thermodynamic, and kinetic properties of biologically
+          relevant molecules. These simulations are critical in understanding biochemical processes at a
+          molecular level, aiding in the design of more effective drugs and catalysts through methods like
+          docking and conformational analysis.
+        </p>
+
+        <p>
+          Looking ahead, I am eager to expand my expertise into bioinformatics and pharmainformatics.
+          These fields stand at the intersection of biology, medicine, and computational technology, focusing
+          on the analysis of biological data and the development of pharmaceuticals. I am particularly
+          interested in genetic sequencing and protein structure prediction, which are vital for groundbreaking
+          work in personalized medicine and drug discovery.
+        </p>
+
+        <!-- Project category buttons like your Wix screenshot -->
+        <div style="margin-top:18px; display:grid; gap:12px">
+          <a class="btn" href="projects.html#astro">Computational Astrophysics</a>
+          <a class="btn" href="projects.html#quantum">Computational Quantum Physics and Chemistry</a>
+          <a class="btn" href="projects.html#finance">AI-Driven Financial Modeling Projects</a>
+        </div>
+      </div>
+
+      <!-- Right: portrait image (reuses your .about-right img styles) -->
+      <div class="about-right">
+        <img src="assets/img/me.jpg" alt="Harshit Lakum portrait" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Optional education band using your existing glass styles -->
+  <section class="education">
+    <div class="container">
+      <h2>Education</h2>
+      <div class="edu-grid">
+        <div class="edu-left">
+          <div class="edu-year">2024 — Present</div>
+          <div class="edu-inst">Universität Wien · MSc Computational Science</div>
+        </div>
+        <div class="edu-right">
+          <p>Physics-heavy track with simulations, soft matter, numerical methods, and HPC.</p>
+        </div>
+
+        <div class="edu-left">
+          <div class="edu-year">2017 — 2022</div>
+          <div class="edu-inst">Nirma University · B.Tech Information Technology</div>
+        </div>
+        <div class="edu-right">
+          <p>Core CS, data science, and capstone projects in computer vision and ML.</p>
+        </div>
+      </div>
+
+      <!-- Contact strip reusing your glass bar styles -->
+      <div class="contact-strip">
+        <div class="contact-inner">
+          <div class="contact-item">
+            <div class="label">Email</div>
+            <a href="mailto:harshitlakum2012@gmail.com">harshitlakum2012@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <div class="label">GitHub</div>
+            <a href="https://github.com/harshitlakum" target="_blank" rel="noopener">github.com/harshitlakum</a>
+          </div>
+          <div class="contact-item">
+            <div class="label">Portfolio</div>
+            <a href="https://harshitlakum.github.io" target="_blank" rel="noopener">harshitlakum.github.io</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer container">
+    © <span id="y"></span> Harshit Lakum
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
