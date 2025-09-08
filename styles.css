@@ -1,0 +1,155 @@
+/* ---- Base ---- */
+:root{
+  --bg: #0b1020;
+  --fg: #eef3ff;
+  --muted: #a9b4cc;
+  --accent: #e83b3b;      /* red button like in screenshot */
+  --panel: #ffffff;
+  --glass: rgba(255,255,255,0.16);
+  --glass-border: rgba(255,255,255,0.35);
+  --ring: rgba(255,255,255,0.12);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  color:var(--fg);
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,Arial,sans-serif;
+}
+
+/* Page background (blurred tech image + slight overlay) */
+.page-bg{
+  background: #0b1020 url('assets/img/bg.jpg') center/cover no-repeat fixed;
+}
+
+.page-bg-overlay{
+  position:fixed; inset:0;
+  background: linear-gradient(180deg, rgba(11,16,32,.65), rgba(11,16,32,.65));
+  z-index:-1;
+}
+
+.container{max-width:1100px;margin:0 auto;padding:24px}
+
+/* ---- Hero ---- */
+.hero{
+  text-align:center;
+  padding:22vh 24px 18vh;
+}
+.hero h1{
+  margin:0;
+  font-weight:700;
+  letter-spacing:.4px;
+  text-shadow: 0 2px 18px rgba(0,0,0,.45);
+}
+
+/* ---- About ---- */
+.about{padding:24px 24px 64px}
+.about-card{
+  background:transparent;
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap:28px;
+  align-items:center;
+}
+.about-left{
+  background: var(--panel);
+  color:#111828;
+  border-radius:10px;
+  padding:28px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.25);
+}
+.about-left h2{
+  margin:0 0 4px 0;
+  font-size:38px;
+  color:#111828;
+}
+.about-left h3{
+  margin:0 0 16px 0;
+  font-size:20px;
+  color:#111828;
+  font-weight:600;
+}
+.about-left p{color:#374151;margin:0 0 18px 0}
+
+.icons{display:flex;gap:10px;margin:6px 0 16px}
+.icon{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#111828;color:#fff;opacity:.9}
+.icon:hover{opacity:1}
+
+.btn{
+  display:inline-block;
+  background:var(--accent);
+  color:#fff;
+  padding:10px 16px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow:0 4px 14px rgba(232,59,59,.35);
+}
+
+.about-right img{
+  width:100%; height:auto; display:block;
+  border-radius:10px;
+  box-shadow: 0 8px 30px rgba(0,0,0,.35);
+  border:1px solid var(--ring);
+}
+
+/* ---- Education (glass band) ---- */
+.education{
+  padding:80px 0;
+  position:relative;
+}
+.education::before{
+  content:"";
+  position:absolute; inset:0;
+  background: var(--glass);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.education .container{position:relative}
+.education h2{margin:0 0 16px 0}
+
+.edu-grid{
+  display:grid;
+  grid-template-columns: 260px 1fr;
+  gap:26px 32px;
+}
+.edu-left{color:#e6ebff}
+.edu-year{color:#cfd6ec;margin-bottom:6px}
+.edu-inst{font-weight:600}
+
+.edu-right p{
+  margin:0;
+  color:#e9efff;
+  opacity:.95;
+}
+
+/* ---- Contact strip (glass bar) ---- */
+.contact-strip{
+  margin:48px 0 0;
+  position:relative;
+}
+.contact-strip::before{
+  content:"";
+  position:absolute; left:0; right:0;
+  height:56px; top:0; bottom:0; margin:auto 0;
+  background: var(--glass);
+  border-top:1px solid var(--glass-border);
+  border-bottom:1px solid var(--glass-border);
+  backdrop-filter: blur(6px);
+}
+.contact-inner{
+  position:relative;
+  display:flex; gap:40px; align-items:center; justify-content:flex-start;
+  padding:22px 24px;
+}
+.contact-item .label{color:#cfd6ec;font-size:14px;margin-bottom:4px}
+.contact-item a{color:#ffffff;text-decoration:none}
+.contact-item a:hover{text-decoration:underline}
+
+/* ---- Footer ---- */
+.footer{padding:28px 24px 56px;color:#cfd6ec}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px){
+  .about-card{grid-template-columns:1fr}
+}
