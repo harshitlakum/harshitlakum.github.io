@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contact · Harshit Lakum</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Contact Harshit Lakum — Master's student in computational physics. Collaborations, research, and project inquiries." />
+  <meta name="theme-color" content="#111111" />
+  <style>
+    /* ---- Page-scoped styles (consistent with your site) ---- */
+    .page-wrap{padding:48px 0 72px}
+    .topbar{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+    .backlink{display:inline-block;padding:6px 10px;border:1px solid var(--glass-border);border-radius:6px;background:var(--glass);backdrop-filter:blur(6px);color:var(--fg);text-decoration:none;font-weight:600}
+    h1.title{font-size:44px;line-height:1.15;margin:10px 0 18px 0}
+
+    .lead-blurb{max-width:900px;background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(8px);padding:16px;border-radius:10px}
+    .lead-blurb p{margin:0;color:#e9efff}
+
+    .divider{height:1px;background:rgba(255,255,255,.18);margin:42px 0}
+
+    .grid{display:grid;gap:18px}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+    @media (max-width:980px){.grid-3,.grid-2{grid-template-columns:1fr}}
+
+    .card{background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(8px);border-radius:12px;padding:16px;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+    .card h3{margin:0 0 6px 0;font-size:18px}
+    .card p{margin:0;color:#e9efff;opacity:.95}
+    .muted{color:#cfd6ec;opacity:.9;font-size:13px}
+
+    /* Buttons reuse accent style */
+    .btn, .media .view{
+      display:inline-block;margin-top:8px;padding:10px 14px;font-size:13px;font-weight:700;letter-spacing:.06em;text-align:center;
+      color:#fff;background:var(--accent);border-radius:8px;text-decoration:none;
+      box-shadow:0 4px 14px rgba(232,59,59,.35);transition:background .25s, transform .2s;
+    }
+    .btn:hover, .media .view:hover{background:#c72f2f;transform:translateY(-2px)}
+    .btn.secondary{background:transparent;border:1px solid var(--ring);color:#e9efff;box-shadow:none}
+    .btn.block{width:100%}
+
+    /* Form */
+    .form-wrap{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .form-wrap .full{grid-column:1 / -1}
+    label{display:block;font-size:13px;color:#cfd6ec;margin:0 0 6px 2px}
+    input, textarea, select{
+      width:100%;padding:12px 12px;border-radius:10px;border:1px solid (var(--glass-border));background:rgba(255,255,255,.04);
+      color:#e9efff;outline:none
+    }
+    input:focus, textarea:focus, select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(232,59,59,.2)}
+    .note{font-size:12px;color:#cfd6ec;margin-top:6px}
+    .status{margin-top:12px;font-size:14px}
+    .ok{color:#8ef18e}
+    .err{color:#ffb4b4}
+
+    /* FAQ & helpers */
+    details{background:var(--glass);border:1px solid var(--glass-border);border-radius:10px;padding:12px}
+    summary{cursor:pointer;font-weight:600;letter-spacing:.02em}
+    details p{margin:10px 0 0 0}
+
+    .contact-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .kbd{background:rgba(255,255,255,.06);border:1px solid var(--glass-border);border-radius:6px;padding:4px 8px;font-family:ui-monospace, SFMono-Regular, Menlo, monospace}
+  </style>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Harshit Lakum",
+    "url":"https://your-domain.example",
+    "email":"mailto:harshitlakum2012@gmail.com",
+    "sameAs":[
+      "https://github.com/harshitlakum",
+      "https://www.linkedin.com/in/harshitlakum"
+    ],
+    "affiliation":{
+      "@type":"CollegeOrUniversity",
+      "name":"Universität Wien",
+      "department":"Department of Physics"
+    },
+    "jobTitle":"Master's student"
+  }
+  </script>
+</head>
+<body class="page-bg">
+  <div class="page-bg-overlay"></div>
+
+  <main class="container page-wrap">
+    <!-- Top / Title -->
+    <div class="topbar">
+      <a class="backlink" href="about.html">← Back</a>
+    </div>
+    <h1 class="title">Contact</h1>
+
+    <div class="lead-blurb" role="complementary" aria-label="Intro">
+      <p>
+        I’m a Master’s student working in computational physics. For collaborations, research discussions,
+        project opportunities, or general questions, use the form below or email me directly.
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Quick links -->
+    <section class="grid grid-3" aria-label="Quick contact options">
+      <div class="card">
+        <h3>Primary Email</h3>
+        <div class="contact-row">
+          <span class="kbd" id="email-text">harshitlakum2012@gmail.com</span>
+          <button class="btn secondary" id="copy-email" type="button" aria-label="Copy primary email">Copy</button>
+          <a class="btn" href="mailto:harshitlakum2012@gmail.com?subject=Hello%20Harshit&body=Hi%20Harshit,%0D%0A" rel="noopener noreferrer">Open Mail</a>
+        </div>
+        <p class="muted" style="margin-top:6px">Messages from the form are delivered here.</p>
+      </div>
+
+      <div class="card">
+        <h3>Secondary Email</h3>
+        <div class="contact-row">
+          <span class="kbd">harshitlakum68@gmail.com</span>
+          <a class="btn secondary" href="mailto:harshitlakum68@gmail.com?subject=Hello%20Harshit&body=Hi%20Harshit,%0D%0A" rel="noopener noreferrer">Mail Secondary</a>
+        </div>
+        <p class="muted" style="margin-top:6px">Use if the primary is unavailable.</p>
+      </div>
+
+      <div class="card">
+        <h3>Profiles</h3>
+        <div class="contact-row">
+          <a class="btn" href="https://github.com/harshitlakum" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="btn secondary" href="https://www.linkedin.com/in/harshit-lakum-54b52519b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+        <p class="muted" style="margin-top:6px">Code, projects, and updates.</p>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Contact form (direct to primary inbox via FormSubmit) -->
+    <section class="card" aria-label="Send a message">
+      <h3 style="margin-bottom:10px">Send a Message</h3>
+
+      <!-- Posts directly to your inbox via FormSubmit -->
+      <form id="contact-form" class="form-wrap"
+            action="https://formsubmit.co/harshitlakum2012@gmail.com"
+            method="POST" novalidate>
+        <!-- FormSubmit options -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_subject" value="[harshitlakum.dev] New contact form message">
+        <!-- Optional redirect after success:
+        <input type="hidden" name="_next" value="https://your-domain.example/thanks.html">
+        -->
+
+        <!-- Honeypot (spam trap) -->
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div>
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" placeholder="Ada Lovelace" required autocomplete="name" />
+        </div>
+
+        <div>
+          <label for="email">Your email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required autocomplete="email" />
+        </div>
+
+        <div class="full">
+          <label for="subject">Subject</label>
+          <input id="subject" name="subject" type="text" placeholder="Collaboration / Inquiry" required />
+        </div>
+
+        <div class="full">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="7" placeholder="Write your message…" required></textarea>
+          <p class="note">Submitting this form will email me directly at <strong>harshitlakum2012@gmail.com</strong>.</p>
+        </div>
+
+        <div>
+          <label for="topic">Topic</label>
+          <select id="topic" name="topic">
+            <option value="research">Research / Paper</option>
+            <option value="collaboration">Collaboration</option>
+            <option value="project">Project Work</option>
+            <option value="speaking">Speaking / Events</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="timeline">Timeline (optional)</label>
+          <input id="timeline" name="timeline" type="text" placeholder="e.g., by Nov 15" />
+        </div>
+
+        <div class="full">
+          <button class="btn block" type="submit">Send Message</button>
+          <div id="form-status" class="status" role="status" aria-live="polite"></div>
+        </div>
+      </form>
+
+      <div class="contact-row" style="margin-top:12px">
+        <a class="btn secondary" href="mailto:harshitlakum2012@gmail.com?subject=Hello%20Harshit&body=Hi%20Harshit,%0D%0A" rel="noopener noreferrer">Email instead</a>
+        <a class="btn secondary" href="paper.html">View Papers</a>
+        <a class="btn secondary" href="projects.html">View Projects</a>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- FAQ (student profile) -->
+    <section class="grid grid-2" aria-label="FAQ">
+      <details class="card">
+        <summary>What should I include for collaboration proposals?</summary>
+        <p>
+          A short abstract (3–5 lines), objective, expected timeline, and any datasets/code links.
+          If relevant, include prior work and expected deliverables.
+        </p>
+      </details>
+      <details class="card">
+        <summary>Availability & response time?</summary>
+        <p>
+          Based in Vienna (CET/CEST). Typical reply within 1–2 business days.
+        </p>
+      </details>
+      <details class="card">
+        <summary>Areas of interest</summary>
+        <p>
+          Computational physics, numerical methods, scientific Python/Fortran workflows,
+          image reconstruction, and simulation analysis.
+        </p>
+      </details>
+      <details class="card">
+        <summary>Preferred tools</summary>
+        <p>
+          Python (NumPy, SciPy, Matplotlib, PyTorch), Fortran, ESPResSo, xarray, Jupyter.
+        </p>
+      </details>
+    </section>
+
+    <div class="divider"></div>
+
+    <p class="muted">You’ll see a confirmation below when the form sends successfully.</p>
+  </main>
+
+  <footer class="footer container">
+    © <span id="y"></span> Harshit Lakum
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Copy primary email
+    const copyBtn = document.getElementById('copy-email');
+    const emailText = document.getElementById('email-text');
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(emailText.textContent.trim());
+        copyBtn.textContent = 'Copied!';
+        setTimeout(()=>copyBtn.textContent='Copy', 1500);
+      } catch (e) {
+        alert('Copy failed. Please copy manually.');
+      }
+    });
+
+    // Client-side validation + UX message
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', (e) => {
+      const required = ['name','email','subject','message'];
+      const missing = required.filter(n => !form.querySelector(`[name="${n}"]`).value.trim());
+      if (missing.length){
+        e.preventDefault();
+        status.textContent = 'Please fill all required fields.';
+        status.className = 'status err';
+      } else {
+        status.textContent = 'Sending…';
+        status.className = 'status';
+      }
+    });
+  </script>
+</body>
+</html>

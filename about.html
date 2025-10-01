@@ -5,75 +5,152 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>About · Harshit Lakum</title>
   <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* ===== Dropdown (solid red, high contrast) ===== */
+    .nav { display: inline-flex; gap: 8px; align-items: center; }
+
+    .dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle.btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      user-select: none;
+    }
+    .dropdown-toggle .caret {
+      display: inline-block; width:0; height:0;
+      border-left:5px solid transparent; border-right:5px solid transparent;
+      border-top:6px solid #fff; transition: transform .18s ease;
+    }
+    .dropdown[aria-expanded="true"] .caret { transform: rotate(180deg); }
+
+    /* Solid red menu */
+    .dropdown-menu {
+      position: absolute; left: 0; top: calc(100% + 14px);  /* extra space so it's clearly separated */
+      display: none;
+      background: var(--accent);          /* solid red */
+      border: 1px solid rgba(0,0,0,.15);
+      border-radius: 12px;
+      box-shadow: 0 16px 40px rgba(0,0,0,.35);
+      min-width: 280px;
+      padding: 10px;                      /* breathing room around items */
+      z-index: 1000;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      padding: 12px 14px;
+      color: #fff;                        /* strong contrast */
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing:.2px;
+      border-radius: 8px;
+    }
+
+    /* Subtle hover within same red palette */
+    .dropdown-menu a:hover,
+    .dropdown-menu a:focus {
+      background: rgba(255,255,255,.14);
+      outline: none;
+    }
+
+    /* Divider lines for clarity (optional but helps readability) */
+    .dropdown-menu a + a {
+      margin-top: 6px;
+      border-top: 1px solid rgba(255,255,255,.18);
+      padding-top: 18px;
+    }
+
+    /* Desktop: open on hover; keyboard focus supported */
+    @media (hover:hover) and (pointer:fine) {
+      .dropdown:hover .dropdown-menu { display: block; }
+    }
+    /* Show when JS toggles (mobile/click) */
+    .dropdown[aria-expanded="true"] .dropdown-menu { display: block; }
+
+    /* Highlight the toggle when the menu is open */
+    .dropdown[aria-expanded="true"] .dropdown-toggle {
+      background: #b51f1f; /* darker red */
+      box-shadow: 0 6px 18px rgba(181,31,31,.45);
+    }
+
+    /* Ensure header wraps nicely on small screens */
+    @media (max-width: 640px){
+      header nav { display:flex; flex-wrap:wrap; gap:8px; }
+      .dropdown-menu { min-width: 240px; }
+    }
+  </style>
 </head>
 <body class="page-bg">
-  <!-- dark blur overlay from your CSS -->
+  <!-- background overlay from your CSS -->
   <div class="page-bg-overlay"></div>
 
-  <!-- Simple header (same links across pages) -->
+  <!-- Header -->
   <header class="container" style="padding-top:18px">
-    <nav>
+    <nav class="nav" aria-label="Primary">
       <a class="btn" href="index.html">Home</a>
-      <a class="btn" href="projects.html" style="margin-left:8px">Projects</a>
-      <a class="btn" href="publications.html" style="margin-left:8px">Papers</a>
-      <a class="btn" href="contact.html" style="margin-left:8px">Contact</a>
+
+      <!-- Projects dropdown -->
+      <div class="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn dropdown-toggle" type="button" id="projectsToggle" aria-controls="projectsMenu">
+          Projects <span class="caret" aria-hidden="true"></span>
+        </button>
+        <div class="dropdown-menu" id="projectsMenu" role="menu" aria-labelledby="projectsToggle">
+          <a role="menuitem" href="physics.html">Computational Physics</a>
+          <a role="menuitem" href="astro.html">Computational Astrophysics and Meteorology</a>
+          <a role="menuitem" href="num.html">Numerical &amp; AI/ML Tools</a>
+        </div>
+      </div>
+
+      <a class="btn" href="paper.html">Papers</a>
+      <a class="btn" href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- ABOUT SECTION (uses .about, .about-card, .about-left/right from your CSS) -->
+  <!-- ABOUT SECTION -->
   <section class="about">
     <div class="container about-card">
-      <!-- Left: white panel with your long text -->
       <div class="about-left">
         <h2>About Me</h2>
-        <h3>Computational Science • Astrophysics • Quantum • Chemistry</h3>
+        <h3>Computational Science </h3>
 
         <p>
-          I am currently pursuing a Master’s in Computational Science at the University of Vienna, where I specialize in computational physics and soft matter research. 
+          I am currently pursuing a Master’s in Computational Science at the University of Vienna, where I specialize in computational physics and soft matter research.
           My academic path is centered on the use of partial differential equations (PDEs), numerical methods, and large-scale simulations to understand complex physical systems.
           This work allows me to bridge rigorous mathematics with high-performance computing in order to tackle problems that span multiple domains of physics and applied science.
         </p>
 
         <p>
-          My current research internship focuses on the field-controlled assembly of magnetically capped Janus colloids, where I employ Brownian dynamics and hydrodynamic interaction 
-          simulations in ESPResSo to study structural transitions such as ring-to-chain formation and clustering. This project highlights my interest in statistical mechanics, 
+          My current research internship focuses on the field-controlled assembly of magnetically capped Janus colloids, where I employ Brownian dynamics and hydrodynamic interaction
+          simulations in ESPResSo to study structural transitions such as ring-to-chain formation and clustering. This project highlights my interest in statistical mechanics,
           condensed matter physics, and non-equilibrium systems, with the broader goal of contributing to the development of advanced smart materials.
         </p>
 
         <p>
-          Previously, I have worked on a variety of computational projects, including variational Monte Carlo modeling of quantum systems, interactive molecular dynamics teaching tools, 
-          and numerical solvers for PDEs implemented in Python and Fortran. These experiences have given me both theoretical depth and practical skills in simulation design, algorithm development, 
+          Previously, I have worked on a variety of computational projects, including variational Monte Carlo modeling of quantum systems, interactive molecular dynamics teaching tools,
+          and numerical solvers for PDEs implemented in Python and Fortran. These experiences have given me both theoretical depth and practical skills in simulation design, algorithm development,
           and data-driven analysis.
         </p>
 
         <p>
-          Looking ahead, my primary ambition is to pursue a PhD in computational physics/soft matter, focusing on PDE-based modeling, statistical mechanics, and simulation-driven discoveries in complex systems. 
-          At the same time, I remain open to applying my expertise in software engineering, AI/ML, and scientific computing roles in Europe, particularly in areas where numerical modeling, HPC, and data-driven 
+          Looking ahead, my primary ambition is to pursue a PhD in computational physics/soft matter, focusing on PDE-based modeling, statistical mechanics, and simulation-driven discoveries in complex systems.
+          At the same time, I remain open to applying my expertise in software engineering, AI/ML, and scientific computing roles in Europe, particularly in areas where numerical modeling, HPC, and data-driven
           methods intersect with industry applications.
         </p>
 
         <p>
-          With a strong foundation in Python, Fortran, MATLAB, and modern simulation frameworks, I aim to advance both fundamental understanding and applied solutions—whether in academic research or in industry—at 
+          With a strong foundation in Python, Fortran, MATLAB, and modern simulation frameworks, I aim to advance both fundamental understanding and applied solutions—whether in academic research or in industry—at
           the intersection of mathematics, computation, and physics.
-
         </p>
 
-        <!-- Project category buttons like your Wix screenshot -->
-        <div style="margin-top:18px; display:grid; gap:12px">
-          <a class="btn" href="projects.html#astro">Computational Astrophysics and Meteorology </a>
-          <a class="btn" href="projects.html#quantum">Computational Physics and Chemistry</a>
-          <a class="btn" href="projects.html#finance">Numerical & AI/ML Tools </a>
-        </div>
+        <!-- NOTE: the three buttons that used to be here have been removed per your request -->
       </div>
 
-      <!-- Right: portrait image (reuses your .about-right img styles) -->
       <div class="about-right">
         <img src="assets/img/me.jpg" alt="Harshit Lakum portrait" />
       </div>
     </div>
   </section>
 
-  <!-- Optional education band using your existing glass styles -->
+  <!-- Education -->
   <section class="education">
     <div class="container">
       <h2>Education</h2>
@@ -95,7 +172,6 @@
         </div>
       </div>
 
-      <!-- Contact strip reusing your glass bar styles -->
       <div class="contact-strip">
         <div class="contact-inner">
           <div class="contact-item">
@@ -119,8 +195,40 @@
     © <span id="y"></span> Harshit Lakum
   </footer>
 
+  <!-- JS for mobile/click toggle + outside-click/escape -->
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    (function(){
+      const dropdown = document.querySelector('.dropdown');
+      const toggle = document.getElementById('projectsToggle');
+      const menu   = document.getElementById('projectsMenu');
+      if(!dropdown || !toggle || !menu) return;
+
+      // Toggle on click/tap
+      toggle.addEventListener('click', () => {
+        const expanded = dropdown.getAttribute('aria-expanded') === 'true';
+        dropdown.setAttribute('aria-expanded', String(!expanded));
+      });
+
+      // Close on outside click
+      document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target)) dropdown.setAttribute('aria-expanded', 'false');
+      });
+
+      // Close on Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          dropdown.setAttribute('aria-expanded', 'false');
+          toggle.focus();
+        }
+      });
+
+      // Close after choosing a link (mobile UX)
+      menu.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => dropdown.setAttribute('aria-expanded','false'));
+      });
+    })();
   </script>
 </body>
 </html>

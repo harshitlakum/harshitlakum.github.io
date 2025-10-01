@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Numerical Methods & Scientific Computing · Harshit Lakum</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ---- Page-scoped styles (copied from "code") ---- */
+    .page-wrap{padding:48px 0 72px}
+    .topbar{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+    .backlink{display:inline-block;padding:6px 10px;border:1px solid var(--glass-border);border-radius:6px;background:var(--glass);backdrop-filter:blur(6px);color:var(--fg);text-decoration:none;font-weight:600}
+    h1.title{font-size:44px;line-height:1.15;margin:10px 0 18px 0}
+    .lead-blurb{max-width:760px;background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(8px);padding:14px 16px;border-radius:8px}
+    .lead-blurb p{margin:0;color:#e9efff}
+
+    .divider{height:1px;background:rgba(255,255,255,.18);margin:42px 0}
+
+    .proj{display:grid;gap:32px}
+    .proj-row{
+      display:grid;align-items:start;gap:28px;
+      grid-template-columns: 360px 1fr;
+    }
+    .proj-row.reverse{grid-template-columns: 1fr 360px}
+    .proj-row.reverse .media{order:2}
+
+    .media .view{
+      display:inline-block;margin-top:8px;padding:6px 12px;font-size:12px;font-weight:600;letter-spacing:.08em;text-align:center;
+      color:#fff;background:var(--accent);border-radius:6px;text-decoration:none;
+      box-shadow:0 4px 14px rgba(232,59,59,.35);transition:background .25s, transform .2s;
+    }
+    .media .view:hover{background:#c72f2f;transform:translateY(-2px)}
+
+    .kicker{color:#cfd6ec;font-weight:600;letter-spacing:.12em;font-size:13px;margin-bottom:6px}
+    .proj h3{margin:0 0 8px 0;font-size:22px}
+    .proj p{margin:0 0 12px 0;color:#e9efff;opacity:.95}
+    .proj h4{margin:16px 0 8px 0;font-size:14px;letter-spacing:.06em;color:#cfd6ec;text-transform:uppercase}
+    .proj ul{margin:0 0 8px 18px}
+    .proj li{margin:6px 0}
+
+    @media (max-width:980px){
+      .proj-row, .proj-row.reverse{grid-template-columns:1fr}
+      .proj-row.reverse .media{order:0}
+    }
+  </style>
+</head>
+<body class="page-bg">
+  <div class="page-bg-overlay"></div>
+
+  <main class="container page-wrap">
+    <!-- Top / Title -->
+    <div class="topbar">
+      <a class="backlink" href="about.html">← Back</a>
+    </div>
+    <h1 class="title">Numerical Methods & Scientific Computing</h1>
+
+    <div class="lead-blurb">
+      <p>
+        A curated set of numerical-analysis repositories in Python and MATLAB: finite-difference schemes,
+        ODE/PDE solvers, stability demonstrations, Krylov methods, interpolation, and core factorizations.
+        Each entry includes concise descriptions, runnable scripts, and plots for study, teaching, and research.
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Project 01 -->
+    <section class="proj">
+      <div class="proj-row">
+        <div class="media">
+          <a class="view" href="https://github.com/harshitlakum/Numerical-Schemes-Stability-Analysis">VIEW</a>
+        </div>
+        <div class="content">
+          <div class="kicker">01</div>
+          <h3>Numerical Schemes & Stability Analysis</h3>
+          <p>
+            Python/MATLAB scripts for high-order finite differences (order verification), a 2D Poisson
+            finite-difference solver with Dirichlet BCs and convergence analysis, and a numerical
+            demonstration of the Lax–Richtmyer stability theorem for linear time-stepping schemes.
+          </p>
+          <h4>Includes</h4>
+          <ul>
+            <li><code>fd_derivative_order</code> · 4th-order derivative & accuracy plots</li>
+            <li><code>poisson2d_fd</code> · 2D Poisson solve + error vs mesh size</li>
+            <li><code>lax_richtmyer_stability_demo</code> · stability bound verification</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Project 02 -->
+      <div class="proj-row">
+        <div class="media">
+          <a class="view" href="https://github.com/harshitlakum/Numerical-ODE-PDE-Solvers-2-">VIEW</a>
+        </div>
+        <div class="content">
+          <div class="kicker">02</div>
+          <h3>Numerical-ODE-PDE-Solvers-2-</h3>
+          <p>
+            A compact set of ODE and high-dimensional integration demos in Python/MATLAB:
+            explicit Euler (fixed/adaptive), RK4 for linear systems, implicit midpoint vs explicit Euler
+            for stiffness, and Monte Carlo integration for multidimensional quadrature.
+          </p>
+          <h4>Highlights</h4>
+          <ul>
+            <li>Adaptive step control and stability comparisons</li>
+            <li>Stiffness behavior via implicit midpoint</li>
+            <li>Monte Carlo integration & curse of dimensionality</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Project 03 -->
+      <div class="proj-row">
+        <div class="media">
+          <a class="view" href="https://github.com/harshitlakum/Numerical-ODE-PDE-Solvers">VIEW</a>
+        </div>
+        <div class="content">
+          <div class="kicker">03</div>
+          <h3>Numerical-ODE-PDE-Solvers</h3>
+          <p>
+            Side-by-side Python/MATLAB implementations for classic ODE/PDE solvers:
+            Explicit vs Symplectic Euler, CG for SPD Laplacians (with/without preconditioning),
+            and restarted GMRES for unsymmetric systems (with/without ILU).
+          </p>
+          <h4>Scripts</h4>
+          <ul>
+            <li><code>euler_logistic_compare</code> · logistic IVP vs exact</li>
+            <li><code>symplectic_euler_oscillator</code> · energy-aware integration</li>
+            <li><code>cg_laplace_compare</code> · PCG vs CG</li>
+            <li><code>gmres_test</code> · restarted GMRES & ILU</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Project 04 -->
+      <div class="proj-row">
+        <div class="media">
+          <a class="view" href="https://github.com/harshitlakum/cg-spectrum-demo">VIEW</a>
+        </div>
+        <div class="content">
+          <div class="kicker">04</div>
+          <h3>CG Spectrum Demo</h3>
+          <p>
+            Demonstrates how eigenvalue clustering/outliers affect CG convergence. Includes
+            SD vs CG on 2D Laplace, relative A-norm error plots per iteration, and overlays of
+            theoretical convergence bounds.
+          </p>
+          <h4>Structure</h4>
+          <ul>
+            <li><code>python/</code> and <code>matlab/</code> experiments</li>
+            <li><code>figures/</code> with publication-ready plots</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Project 05 -->
+      <div class="proj-row">
+        <div class="media">
+          <a class="view" href="https://github.com/harshitlakum/numerical-methods-toolkit">VIEW</a>
+        </div>
+        <div class="content">
+          <div class="kicker">05</div>
+          <h3>Numerical Methods Toolkit</h3>
+          <p>
+            From-scratch implementations for root-finding and unconstrained minimization:
+            1D bisection/newton/secant, Newton for systems, Armijo line search, and Newton+Armijo
+            for n-D optimization. Python and MATLAB/Octave, modular and well-documented.
+          </p>
+          <h4>Provided Methods</h4>
+          <ul>
+            <li>Bisection, Newton (1D), Secant</li>
+            <li>Newton (systems)</li>
+            <li>Armijo line search & Newton-Armijo</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Project 06 -->
+      <div class="proj-row">
+        <div class="media">
+          <a class="view" href="https://github.com/harshitlakum/Numerical-Linear-Algebra-Toolkit-2-">VIEW</a>
+        </div>
+        <div class="content">
+          <div class="kicker">06</div>
+          <h3>Numerical Methods Toolkit (2)</h3>
+          <p>
+            Core approximation and quadrature routines in Python/MATLAB: polynomial least-squares fitting,
+            natural cubic spline interpolation, trigonometric interpolation via FFT, and the composite
+            trapezoidal rule for integration.
+          </p>
+          <h4>Algorithms</h4>
+          <ul>
+            <li>Least-squares polynomial fit</li>
+            <li>Natural cubic splines</li>
+            <li>FFT-based trig interpolation</li>
+            <li>Composite trapezoidal rule</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Project 07 -->
+      <div class="proj-row">
+        <div class="media">
+          <a class="view" href="https://github.com/harshitlakum/Numerical-Linear-Algebra-Toolkit">VIEW</a>
+        </div>
+        <div class="content">
+          <div class="kicker">07</div>
+          <h3>Numerical Linear Algebra & Interpolation Toolkit</h3>
+          <p>
+            Implementations of essential linear-algebra routines plus interpolation:
+            Householder-QR solver, Cholesky (SPD) factorization, LU decomposition/solver,
+            and a natural cubic spline demo—each with runnable examples.
+          </p>
+          <h4>Files</h4>
+          <ul>
+            <li><code>householder_qr_solver</code>, <code>cholesky_spd</code>, <code>LU_decomposition</code></li>
+            <li><code>natural_cubic_spline_demo</code></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- Project 08 -->
+      <div class="proj-row">
+        <div class="media">
+          <a class="view" href="https://github.com/harshitlakum/LU-Cholesky-GaussianElimination-Toolkit">VIEW</a>
+        </div>
+        <div class="content">
+          <div class="kicker">08</div>
+          <h3>LU-Cholesky-GaussianElimination Toolkit</h3>
+          <p>
+            Clean implementations of LU (with/without partial pivoting), Gaussian elimination,
+            back substitution, and Cholesky with SPD checks. Separate Python/MATLAB folders,
+            ready to run and compare.
+          </p>
+          <h4>Algorithms Included</h4>
+          <ul>
+            <li>Back substitution (upper-triangular)</li>
+            <li>LU with partial pivoting (PA=LU) and in-place LU (no pivoting)</li>
+            <li>Cholesky with positive-definiteness checks</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Back / Navigation -->
+    <p><a class="backlink" href="about.html">← Back to Projects</a></p>
+  </main>
+
+  <footer class="footer container">
+    © <span id="y"></span> Harshit Lakum
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
