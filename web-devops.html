@@ -6,6 +6,10 @@
   <title>Web & DevOps · React + Node + CI/CD</title>
   <meta name="description" content="React + Node + Docker + CI/CD showcase" />
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ensure hero content (buttons) is clickable above any overlays */
+    .hero { position: relative; z-index: 2; }
+  </style>
 </head>
 <body class="page-bg">
   <div class="page-bg-overlay"></div>
@@ -24,12 +28,14 @@
       Dockerized backend, and GitHub Actions deploying to GitHub Pages (frontend) + Render (API).
       Fully free, fast to ship, and production-shaped.
     </p>
-    <div style="margin-top:18px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <a class="btn" href="https://YOUR_GITHUB_USERNAME.github.io/tasktrackr/" target="_blank">Live App</a>
-      <a class="btn" href="https://YOUR-RENDER-SUBDOMAIN.onrender.com/docs" target="_blank">API Docs (Swagger)</a>
-      <a class="btn" href="https://github.com/YOUR_GITHUB_USERNAME/tasktrackr/actions" target="_blank">CI/CD (Actions)</a>
-      <a class="btn" href="https://github.com/YOUR_GITHUB_USERNAME/tasktrackr/pkgs/container/tasktrackr-api" target="_blank">Docker Image (GHCR)</a>
-      <a class="btn" href="https://github.com/YOUR_GITHUB_USERNAME/tasktrackr" target="_blank">Repository</a>
+
+    <!-- BUTTONS -->
+    <div style="margin-top:18px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2">
+      <a class="btn" href="https://harshitlakum.github.io/tasktrackr/" target="_blank" rel="noopener">Live App</a>
+      <a class="btn" href="https://RENDER_SUBDOMAIN.onrender.com/docs" target="_blank" rel="noopener">API Docs (Swagger)</a>
+      <a class="btn" href="https://github.com/harshitlakum/tasktrackr/actions" target="_blank" rel="noopener">CI/CD (Actions)</a>
+      <a class="btn" href="https://github.com/harshitlakum/tasktrackr/pkgs/container/tasktrackr-api" target="_blank" rel="noopener">Docker Image (GHCR)</a>
+      <a class="btn" href="https://github.com/harshitlakum/tasktrackr" target="_blank" rel="noopener">Repository</a>
     </div>
   </section>
 
@@ -68,15 +74,15 @@
     <div class="container contact-inner">
       <div class="contact-item">
         <div class="label">Live</div>
-        <a href="https://YOUR_GITHUB_USERNAME.github.io/tasktrackr/" target="_blank">Frontend · GitHub Pages</a>
+        <a href="https://harshitlakum.github.io/tasktrackr/" target="_blank" rel="noopener">Frontend · GitHub Pages</a>
       </div>
       <div class="contact-item">
         <div class="label">API</div>
-        <a href="https://YOUR-RENDER-SUBDOMAIN.onrender.com/docs" target="_blank">Swagger Docs</a>
+        <a href="https://RENDER_SUBDOMAIN.onrender.com/docs" target="_blank" rel="noopener">Swagger Docs</a>
       </div>
       <div class="contact-item">
         <div class="label">CI/CD</div>
-        <a href="https://github.com/YOUR_GITHUB_USERNAME/tasktrackr/actions" target="_blank">GitHub Actions</a>
+        <a href="https://github.com/harshitlakum/tasktrackr/actions" target="_blank" rel="noopener">GitHub Actions</a>
       </div>
     </div>
   </section>
