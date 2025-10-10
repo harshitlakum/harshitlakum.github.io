@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Web & DevOps · React + Node + CI/CD</title>
+  <meta name="description" content="React + Node + Docker + CI/CD showcase" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="page-bg">
+  <div class="page-bg-overlay"></div>
+
+  <header class="container" style="padding-top:18px">
+    <nav class="nav" aria-label="Primary">
+      <a class="btn" href="index.html">Home</a>
+      <a class="btn" href="about.html">About</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>React + Node + Docker + CI/CD</h1>
+    <p style="max-width:760px;margin:12px auto 0">
+      A tiny full-stack demo showing a React (Vite) frontend, Node/Express API, Postgres DB,
+      Dockerized backend, and GitHub Actions deploying to GitHub Pages (frontend) + Render (API).
+      Fully free, fast to ship, and production-shaped.
+    </p>
+    <div style="margin-top:18px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a class="btn" href="https://YOUR_GITHUB_USERNAME.github.io/tasktrackr/" target="_blank">Live App</a>
+      <a class="btn" href="https://YOUR-RENDER-SUBDOMAIN.onrender.com/docs" target="_blank">API Docs (Swagger)</a>
+      <a class="btn" href="https://github.com/YOUR_GITHUB_USERNAME/tasktrackr/actions" target="_blank">CI/CD (Actions)</a>
+      <a class="btn" href="https://github.com/YOUR_GITHUB_USERNAME/tasktrackr/pkgs/container/tasktrackr-api" target="_blank">Docker Image (GHCR)</a>
+      <a class="btn" href="https://github.com/YOUR_GITHUB_USERNAME/tasktrackr" target="_blank">Repository</a>
+    </div>
+  </section>
+
+  <section class="education">
+    <div class="container">
+      <h2>Project Overview</h2>
+      <div class="edu-grid">
+        <div class="edu-left">
+          <div class="edu-year">Stack</div>
+          <div class="edu-inst">Free Tier</div>
+        </div>
+        <div class="edu-right">
+          <p>
+            Frontend: React (Vite) → <b>GitHub Pages</b><br/>
+            Backend: Node/Express (Docker) → <b>Render Free Web Service</b><br/>
+            Database: <b>Neon Postgres (Free)</b><br/>
+            CI/CD: <b>GitHub Actions</b> + <b>GHCR</b> (public images)
+          </p>
+        </div>
+
+        <div class="edu-left">
+          <div class="edu-year">What it shows</div>
+          <div class="edu-inst">Dev → Prod</div>
+        </div>
+        <div class="edu-right">
+          <p>
+            REST API with Swagger, DB-backed CRUD, Dockerized deploys, status badges, and immutable image tags—
+            exactly the signals recruiters look for.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-strip">
+    <div class="container contact-inner">
+      <div class="contact-item">
+        <div class="label">Live</div>
+        <a href="https://YOUR_GITHUB_USERNAME.github.io/tasktrackr/" target="_blank">Frontend · GitHub Pages</a>
+      </div>
+      <div class="contact-item">
+        <div class="label">API</div>
+        <a href="https://YOUR-RENDER-SUBDOMAIN.onrender.com/docs" target="_blank">Swagger Docs</a>
+      </div>
+      <div class="contact-item">
+        <div class="label">CI/CD</div>
+        <a href="https://github.com/YOUR_GITHUB_USERNAME/tasktrackr/actions" target="_blank">GitHub Actions</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer container">
+    © <span id="y"></span> Harshit Lakum
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
