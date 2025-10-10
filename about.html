@@ -24,43 +24,55 @@
 
     /* Solid red menu */
     .dropdown-menu {
-      position: absolute; left: 0; top: calc(100% + 14px);
+      position: absolute; left: 0; top: calc(100% + 14px);  /* extra space so it's clearly separated */
       display: none;
-      background: var(--accent);
+      background: var(--accent);          /* solid red */
       border: 1px solid rgba(0,0,0,.15);
       border-radius: 12px;
       box-shadow: 0 16px 40px rgba(0,0,0,.35);
       min-width: 280px;
-      padding: 10px;
+      padding: 10px;                      /* breathing room around items */
       z-index: 1000;
     }
+
     .dropdown-menu a {
       display: block;
       padding: 12px 14px;
-      color: #fff;
+      color: #fff;                        /* strong contrast */
       text-decoration: none;
       font-weight: 700;
       letter-spacing:.2px;
       border-radius: 8px;
     }
+
+    /* Subtle hover within same red palette */
     .dropdown-menu a:hover,
     .dropdown-menu a:focus {
       background: rgba(255,255,255,.14);
       outline: none;
     }
+
+    /* Divider lines for clarity (optional but helps readability) */
     .dropdown-menu a + a {
       margin-top: 6px;
       border-top: 1px solid rgba(255,255,255,.18);
       padding-top: 18px;
     }
+
+    /* Desktop: open on hover; keyboard focus supported */
     @media (hover:hover) and (pointer:fine) {
       .dropdown:hover .dropdown-menu { display: block; }
     }
+    /* Show when JS toggles (mobile/click) */
     .dropdown[aria-expanded="true"] .dropdown-menu { display: block; }
+
+    /* Highlight the toggle when the menu is open */
     .dropdown[aria-expanded="true"] .dropdown-toggle {
-      background: #b51f1f;
+      background: #b51f1f; /* darker red */
       box-shadow: 0 6px 18px rgba(181,31,31,.45);
     }
+
+    /* Ensure header wraps nicely on small screens */
     @media (max-width: 640px){
       header nav { display:flex; flex-wrap:wrap; gap:8px; }
       .dropdown-menu { min-width: 240px; }
@@ -87,9 +99,6 @@
           <a role="menuitem" href="num.html">Numerical &amp; AI/ML Tools</a>
         </div>
       </div>
-
-      <!-- NEW button between Projects and Papers -->
-      <a class="btn" href="web-devops.html">React + Node + CI/CD</a>
 
       <a class="btn" href="paper.html">Papers</a>
       <a class="btn" href="contact.html">Contact</a>
@@ -132,8 +141,7 @@
           the intersection of mathematics, computation, and physics.
         </p>
 
-        <!-- Optional second showcase button inside the card (keep or remove) -->
-        <!-- <div style="margin-top:14px"><a class="btn" href="web-devops.html">React + Node + CI/CD</a></div> -->
+        <!-- NOTE: the three buttons that used to be here have been removed per your request -->
       </div>
 
       <div class="about-right">
@@ -149,7 +157,7 @@
       <div class="edu-grid">
         <div class="edu-left">
           <div class="edu-year">2024 — Present</div>
-          <div class="edu-inst">Universität Wien · Master in Computational Science</div>
+          <div class="edu-inst">Universität Wien · MSc Computational Science</div>
         </div>
         <div class="edu-right">
           <p>Physics-heavy track with simulations, soft matter, numerical methods, and HPC.</p>
