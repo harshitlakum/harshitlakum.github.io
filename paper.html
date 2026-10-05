@@ -1,163 +1,583 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+
   <title>Papers & Reports · Harshit Lakum</title>
+
   <link rel="stylesheet" href="styles.css" />
+
   <style>
     /* ---- Page-scoped styles (same layout as "code") ---- */
-    .page-wrap{padding:48px 0 72px}
-    .topbar{display:flex;align-items:center;gap:16px;margin-bottom:18px}
-    .backlink{display:inline-block;padding:6px 10px;border:1px solid var(--glass-border);border-radius:6px;background:var(--glass);backdrop-filter:blur(6px);color:var(--fg);text-decoration:none;font-weight:600}
-    h1.title{font-size:44px;line-height:1.15;margin:10px 0 18px 0}
-    .lead-blurb{max-width:760px;background:var(--glass);border:1px solid var(--glass-border);backdrop-filter:blur(8px);padding:14px 16px;border-radius:8px}
-    .lead-blurb p{margin:0;color:#e9efff}
 
-    .divider{height:1px;background:rgba(255,255,255,.18);margin:42px 0}
-
-    .proj{display:grid;gap:32px}
-    .proj-row{
-      display:grid;align-items:start;gap:28px;
-      grid-template-columns: 360px 1fr;  /* left column for the VIEW button */
+    .page-wrap {
+      padding: 48px 0 72px;
     }
-    .proj-row.reverse{grid-template-columns: 1fr 360px}
-    .proj-row.reverse .media{order:2}
 
-    /* Button (same as "code") */
-    .media .view{
-      display:inline-block;margin-top:8px;padding:6px 12px;font-size:12px;font-weight:600;letter-spacing:.08em;text-align:center;
-      color:#fff;background:var(--accent);border-radius:6px;text-decoration:none;
-      box-shadow:0 4px 14px rgba(232,59,59,.35);transition:background .25s, transform .2s;
+    .topbar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
     }
-    .media .view:hover{background:#c72f2f;transform:translateY(-2px)}
+
+    .backlink {
+      display: inline-block;
+      padding: 6px 10px;
+      border: 1px solid var(--glass-border);
+      border-radius: 6px;
+      background: var(--glass);
+      backdrop-filter: blur(6px);
+      color: var(--fg);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    h1.title {
+      font-size: 44px;
+      line-height: 1.15;
+      margin: 10px 0 18px 0;
+    }
+
+    .lead-blurb {
+      max-width: 760px;
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(8px);
+      padding: 14px 16px;
+      border-radius: 8px;
+    }
+
+    .lead-blurb p {
+      margin: 0;
+      color: #e9efff;
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(255, 255, 255, .18);
+      margin: 42px 0;
+    }
+
+    .proj {
+      display: grid;
+      gap: 32px;
+    }
+
+    .proj-row {
+      display: grid;
+      align-items: start;
+      gap: 28px;
+      grid-template-columns: 360px 1fr;
+    }
+
+    .proj-row.reverse {
+      grid-template-columns: 1fr 360px;
+    }
+
+    .proj-row.reverse .media {
+      order: 2;
+    }
+
+    /* Button */
+
+    .media .view {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-align: center;
+      color: #fff;
+      background: var(--accent);
+      border-radius: 6px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(232, 59, 59, .35);
+      transition: background .25s, transform .2s;
+    }
+
+    .media .view:hover {
+      background: #c72f2f;
+      transform: translateY(-2px);
+    }
 
     /* Typography */
-    .kicker{color:#cfd6ec;font-weight:600;letter-spacing:.12em;font-size:13px;margin-bottom:6px}
-    .proj h3{margin:0 0 8px 0;font-size:22px}
-    .proj p{margin:0 0 12px 0;color:#e9efff;opacity:.95}
-    .proj h4{margin:16px 0 8px 0;font-size:14px;letter-spacing:.06em;color:#cfd6ec;text-transform:uppercase}
-    .proj ul{margin:0 0 8px 18px}
-    .proj li{margin:6px 0}
 
-    @media (max-width:980px){
-      .proj-row, .proj-row.reverse{grid-template-columns:1fr}
-      .proj-row.reverse .media{order:0}
+    .kicker {
+      color: #cfd6ec;
+      font-weight: 600;
+      letter-spacing: .12em;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .proj h3 {
+      margin: 0 0 8px 0;
+      font-size: 22px;
+    }
+
+    .proj p {
+      margin: 0 0 12px 0;
+      color: #e9efff;
+      opacity: .95;
+    }
+
+    .proj h4 {
+      margin: 16px 0 8px 0;
+      font-size: 14px;
+      letter-spacing: .06em;
+      color: #cfd6ec;
+      text-transform: uppercase;
+    }
+
+    .proj ul {
+      margin: 0 0 8px 18px;
+    }
+
+    .proj li {
+      margin: 6px 0;
+    }
+
+    .proj a {
+      color: inherit;
+    }
+
+    @media (max-width: 980px) {
+
+      .proj-row,
+      .proj-row.reverse {
+        grid-template-columns: 1fr;
+      }
+
+      .proj-row.reverse .media {
+        order: 0;
+      }
     }
   </style>
 </head>
+
+
 <body class="page-bg">
+
   <div class="page-bg-overlay"></div>
 
+
   <main class="container page-wrap">
+
     <!-- Top / Title -->
+
     <div class="topbar">
       <a class="backlink" href="about.html">← Back</a>
     </div>
+
     <h1 class="title">Papers & Reports</h1>
+
 
     <div class="lead-blurb">
       <p>
-        Peer-style writeups and major reports covering ESPResSo simulations of shifted-dipole colloids,
-        deep-learning–based astronomical image reconstruction, and applied computer vision and medical
-        imaging projects. All PDFs are placed in the same folder as this page for direct viewing.
+        Research reports and project writeups spanning computational soft matter,
+        computational chemistry, materials physics, machine learning, astronomical
+        image reconstruction, computer vision, and medical imaging. All PDFs are
+        available here for direct viewing.
       </p>
     </div>
 
+
     <div class="divider"></div>
+
+
 
     <section class="proj">
-      <!-- 01: Main Project (Shifted-Dipole Trimers) -->
+
+
+      <!-- ====================================================== -->
+      <!-- 01: Shifted-Dipole Trimers -->
+      <!-- ====================================================== -->
+
       <div class="proj-row">
+
         <div class="media">
-          <!-- Put the PDF next to this HTML with this exact filename -->
-          <a class="view" href="trimer.pdf" target="_blank" rel="noopener">VIEW</a>
+          <a
+            class="view"
+            href="trimer.pdf"
+            target="_blank"
+            rel="noopener">
+            VIEW
+          </a>
         </div>
+
+
         <div class="content">
+
           <div class="kicker">01</div>
-          <h3>Field-Controlled Assembly and Structural Transitions in Shifted-Dipole Trimer Clusters</h3>
+
+          <h3>
+            Field-Controlled Assembly and Structural Transitions
+            in Shifted-Dipole Trimer Clusters
+          </h3>
+
           <p>
-            Brownian-dynamics simulations in ESPResSo examine how a dimensionless dipole shift
-            drives ring→chain transitions in Janus trimers. Using an orientational order parameter
-            <em>S</em>, results show thermal fluctuations shift/expand transition windows relative to
-            athermal ground-state predictions, highlighting finite-temperature effects in real systems.
+            Brownian-dynamics simulations in ESPResSo examine how a dimensionless
+            dipole shift drives ring→chain transitions in Janus trimers. Using an
+            orientational order parameter <em>S</em>, results show thermal fluctuations
+            shift and broaden transition windows relative to athermal ground-state
+            predictions, highlighting finite-temperature effects in real systems.
           </p>
+
           <ul>
-            <li><strong>Affiliation:</strong> Department of Physics, Universität Wien</li>
-            <li><strong>Date:</strong> July 6, 2025</li>
-            <li><strong>Includes:</strong> Abstract, Model, Methods, Results, Conclusions, Bibliography, ESPResSo code snippet</li>
+
+            <li>
+              <strong>Affiliation:</strong>
+              Department of Physics, Universität Wien
+            </li>
+
+            <li>
+              <strong>Supervisor:</strong>
+              <a
+                href="https://homepage.univie.ac.at/pedro.sanchez/"
+                target="_blank"
+                rel="noopener">
+                Dr. Pedro A. Sánchez
+              </a>
+            </li>
+
+            <li>
+              <strong>Date:</strong>
+              July 6, 2025
+            </li>
+
+            <li>
+              <strong>Includes:</strong>
+              Abstract, Model, Methods, Results, Conclusions,
+              Bibliography, ESPResSo code snippet
+            </li>
+
           </ul>
+
         </div>
+
       </div>
+
+
 
       <div class="divider"></div>
 
-      <!-- 02: U-Net for Image Reconstruction -->
+
+
+      <!-- ====================================================== -->
+      <!-- 02: Computational Chemistry -->
+      <!-- ====================================================== -->
+
       <div class="proj-row">
+
         <div class="media">
-          <a class="view" href="U-net.pdf" target="_blank" rel="noopener">VIEW</a>
+          <a
+            class="view"
+            href="COMP_CHEM.pdf"
+            target="_blank"
+            rel="noopener">
+            VIEW
+          </a>
         </div>
+
+
         <div class="content">
+
           <div class="kicker">02</div>
-          <h3>U-Net for Image Reconstruction (Denoising)</h3>
+
+          <h3>
+            Quantum Chemical Studies of Ketocoumarin Photosensitizers
+          </h3>
+
           <p>
-            Evaluates U-Net for denoising galaxy images from DECaLS corrupted with Gaussian noise
-            and compares against DCT/DWT baselines enhanced by ISTA. Initial experiments suggest
-            U-Net outperforms classical transforms on this dataset, with performance sensitivity to
-            data characteristics. Includes a concise mathematical overview of the encoder–decoder.
+            Quantum-chemical calculations investigate the conformational and
+            excited-state properties of ketocoumarin photosensitizers. Using
+            GOAT/g-xTB sampling together with DFT and TD-DFT calculations in ORCA,
+            the study analyzes stable conformers, UV–Vis absorption spectra, and
+            torsional potential-energy surfaces relevant to their photophysical
+            behaviour.
           </p>
+
+          <ul>
+
+            <li>
+              <strong>Role:</strong>
+              Research Intern – Computational Chemistry
+            </li>
+
+            <li>
+              <strong>Affiliation:</strong>
+              <a
+                href="https://theochem.univie.ac.at/"
+                target="_blank"
+                rel="noopener">
+                Institute of Theoretical Chemistry, Universität Wien
+              </a>
+            </li>
+
+            <li>
+              <strong>Supervisor:</strong>
+              Konstantinos P. Zois
+            </li>
+
+            <li>
+              <strong>Research Group:</strong>
+              Prof. Leticia González
+            </li>
+
+            <li>
+              <strong>Date:</strong>
+              August 2026
+            </li>
+
+          </ul>
+
         </div>
+
       </div>
+
+
 
       <div class="divider"></div>
 
-      <!-- 03: Lung Nodule Report -->
+
+
+      <!-- ====================================================== -->
+      <!-- 03: Computational Materials Physics -->
+      <!-- ====================================================== -->
+
       <div class="proj-row">
+
         <div class="media">
-          <a class="view" href="lung.pdf" target="_blank" rel="noopener">VIEW</a>
+          <a
+            class="view"
+            href="CMP.pdf"
+            target="_blank"
+            rel="noopener">
+            VIEW
+          </a>
         </div>
+
+
         <div class="content">
+
           <div class="kicker">03</div>
-          <h3>Lung Nodule Classification, Detection, and Segmentation (Minor Project Report)</h3>
+
+          <h3>
+            Computational Materials Physics: Electron Polarons in Rutile TiO₂
+          </h3>
+
           <p>
-            A medical imaging workflow using preprocessing (CLAHE), random-walk segmentation,
-            and classification baselines, with a forward-looking note on improving accuracy via
-            gradient-boosting (XGBoost). Includes department certificates, acknowledgements, and an abstract.
+            DFT and DFT+U calculations in VASP investigate small electron-polaron
+            localization in rutile TiO₂. Large-supercell simulations compare
+            excess-electron and Nb-substitution approaches using electronic structure,
+            local magnetic moments, density of states, and formation energies to
+            characterize stable localized polaron states.
           </p>
+
+          <ul>
+
+            <li>
+              <strong>Role:</strong>
+              Computational Materials Physics Laboratory Student – Internship
+            </li>
+
+            <li>
+              <strong>Affiliation:</strong>
+              <a
+                href="https://cmp.univie.ac.at/"
+                target="_blank"
+                rel="noopener">
+                Computational Materials Physics, Universität Wien
+              </a>
+            </li>
+
+            <li>
+              <strong>Supervisor:</strong>
+              <a
+                href="https://ufind.univie.ac.at/de/person.html?id=1014867"
+                target="_blank"
+                rel="noopener">
+                Dr. Johanna Carbone
+              </a>
+            </li>
+
+            <li>
+              <strong>Research Group:</strong>
+              Univ.-Prof. Dr. techn. Cesare Franchini
+            </li>
+
+          </ul>
+
         </div>
+
       </div>
+
+
 
       <div class="divider"></div>
 
-      <!-- 04: Counting Objects from Live Video Stream -->
+
+
+      <!-- ====================================================== -->
+      <!-- 04: U-Net for Image Reconstruction -->
+      <!-- ====================================================== -->
+
       <div class="proj-row">
+
         <div class="media">
-          <a class="view" href="iot.pdf" target="_blank" rel="noopener">VIEW</a>
+          <a
+            class="view"
+            href="U-net.pdf"
+            target="_blank"
+            rel="noopener">
+            VIEW
+          </a>
         </div>
+
+
         <div class="content">
+
           <div class="kicker">04</div>
-          <h3>Counting Objects from Live Video Stream (Major Project Report)</h3>
+
+          <h3>
+            U-Net for Image Reconstruction (Denoising)
+          </h3>
+
           <p>
-            Applied computer vision pipeline with preprocessing, detection, and segmentation to
-            count vehicles from live video. Discusses method choices, limitations, and outlines a
-            future direction using modern learning-based detectors and boosted models.
+            Evaluates U-Net for denoising galaxy images from DECaLS corrupted
+            with Gaussian noise and compares against DCT/DWT baselines enhanced
+            by ISTA. Initial experiments suggest U-Net outperforms classical
+            transforms on this dataset, with performance sensitivity to data
+            characteristics. Includes a concise mathematical overview of the
+            encoder–decoder.
           </p>
+
         </div>
+
       </div>
+
+
+
+      <div class="divider"></div>
+
+
+
+      <!-- ====================================================== -->
+      <!-- 05: Lung Nodule Report -->
+      <!-- ====================================================== -->
+
+      <div class="proj-row">
+
+        <div class="media">
+          <a
+            class="view"
+            href="lung.pdf"
+            target="_blank"
+            rel="noopener">
+            VIEW
+          </a>
+        </div>
+
+
+        <div class="content">
+
+          <div class="kicker">05</div>
+
+          <h3>
+            Lung Nodule Classification, Detection, and Segmentation
+            (Minor Project Report)
+          </h3>
+
+          <p>
+            A medical imaging workflow using preprocessing (CLAHE),
+            random-walk segmentation, and classification baselines,
+            with a forward-looking note on improving accuracy via
+            gradient-boosting (XGBoost). Includes department certificates,
+            acknowledgements, and an abstract.
+          </p>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="divider"></div>
+
+
+
+      <!-- ====================================================== -->
+      <!-- 06: Counting Objects from Live Video Stream -->
+      <!-- ====================================================== -->
+
+      <div class="proj-row">
+
+        <div class="media">
+          <a
+            class="view"
+            href="iot.pdf"
+            target="_blank"
+            rel="noopener">
+            VIEW
+          </a>
+        </div>
+
+
+        <div class="content">
+
+          <div class="kicker">06</div>
+
+          <h3>
+            Counting Objects from Live Video Stream
+            (Major Project Report)
+          </h3>
+
+          <p>
+            Applied computer vision pipeline with preprocessing, detection,
+            and segmentation to count vehicles from live video. Discusses
+            method choices, limitations, and outlines a future direction
+            using modern learning-based detectors and boosted models.
+          </p>
+
+        </div>
+
+      </div>
+
+
     </section>
+
+
 
     <div class="divider"></div>
 
+
     <!-- Back / Navigation -->
-    <p><a class="backlink" href="about.html">← Back to Projects</a></p>
+
+    <p>
+      <a class="backlink" href="about.html">
+        ← Back to Projects
+      </a>
+    </p>
+
+
   </main>
+
+
 
   <footer class="footer container">
     © <span id="y"></span> Harshit Lakum
   </footer>
 
+
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
   </script>
+
+
 </body>
+
 </html>
